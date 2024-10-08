@@ -13,8 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "blog-web-app": "file:",
+    "dotenv": "^16.4.5",
     "experss": "^0.0.1-security",
     "express": "^4.21.1",
+    "mongoose": "^8.7.0",
     "nodemon": "^3.1.7"
   }
 }
