@@ -30,16 +30,16 @@ export default function Header() {
                     <FaMoon />
                 </Button>
                 <Link to="/sign-in" className="flex items-center text-sm sm:text-xl font-semibold dark:text-white ml-4">
-                <Button gradientDuoTone="purpleToBlue">
+                <Button gradientDuoTone="purpleToBlue" outline>
                     Sign In
                 </Button>
                 </Link>
 
-                <Link to="/sign-up" className="flex items-center text-sm sm:text-xl font-semibold dark:text-white ml-4">
+                {/* <Link to="/sign-up" className="flex items-center text-sm sm:text-xl font-semibold dark:text-white ml-4">
                     <Button color="gray">
                         Sign Up
                     </Button>
-                </Link>
+                </Link> */}
 
                 <Navbar.Toggle />
             </div>

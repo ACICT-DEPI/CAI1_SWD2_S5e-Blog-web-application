@@ -1,0 +1,20 @@
+{
+  "name": "blog-web-app",
+  "version": "1.0.0",
+  "description": "This repository contains the code for a MERN stack blog website, developed as a final project for the DEPI course.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blog-web-app": "file:",
+    "experss": "^0.0.1-security",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
