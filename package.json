@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "blog-web-app": "file:",
     "dotenv": "^16.4.5",
     "experss": "^0.0.1-security",
