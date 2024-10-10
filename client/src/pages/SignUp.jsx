@@ -49,7 +49,7 @@ export default function SignUp() {
                 </div>
             </Link>
             <p className="text-sm mt-5">
-                welcome to our blog website you can sign up by using your e-mail and password or by useing google
+                welcome to our blog website you can sign up by using your e-mail and password or by using google
             </p>
             </div>
             {/* right side */}
