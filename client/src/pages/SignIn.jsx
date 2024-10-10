@@ -34,7 +34,7 @@ export default function SignIn() {
             }
         }
         catch(err) {
-            dispatch(signInFailure(err.message));
+            console.log(err.message);
         }
     };
     return (
