@@ -4,7 +4,7 @@ import { errorHandeler } from "../utils/error.js";
 export const test = (req, res) => {
     res.json({message:"API is working +_+"});
 };
-export const updateUser = async (req, res) => {
+export const updateUser = async (req, res , next) => {
     if(req.user.id != req.params.userId) {
         return next(errorHandeler(403 , 'You are not allowed to update this user'));
     }
@@ -26,7 +26,8 @@ export const updateUser = async (req, res) => {
         }
         if(!req.body.username.match(/^[a-zA-Z0-9]+$/)){
             return next(errorHandeler(403 , 'Username can only contain characters or numbers'));
-        }try{
+        }
+    }try{
             const updateUser = await User.findByIdAndUpdate(req.params.userId, {
                 $set:{
                     username: req.body.username,
@@ -40,5 +41,4 @@ export const updateUser = async (req, res) => {
         } catch(error){
             next(error);
         }
-    }
 };
