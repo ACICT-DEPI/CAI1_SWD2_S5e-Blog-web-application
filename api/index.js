@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
+import cookieParser from 'cookie-parser';
 dotenv.config();
 //const uri = 'mongodb://localhost:27017/mydatabase'; //local MongoDB
 //for MongoDB Atlas
@@ -15,7 +16,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const app = express();
 app.use(express.json());
-
+app.use(cookieParser());
 app.listen(3001, () => {
     console.log('Server is running on port 3001!');
 });
