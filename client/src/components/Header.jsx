@@ -1,10 +1,30 @@
-import { Button, Navbar, TextInput } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import {AiOutlineSearch} from "react-icons/ai";
-import {FaMoon} from "react-icons/fa";
-
+import {FaMoon , FaSun} from "react-icons/fa";
+import { useSelector , useDispatch} from "react-redux";
+import { toggelTheme } from "../redux/theme/themeSlice";
+import { signoutSuccess } from "../redux/user/userSlice";
 export default function Header() {
-    const path = useLocation().pathname; 
+    const path = useLocation().pathname;
+    const dispatch = useDispatch();
+    const {theme} = useSelector(state=>state.theme);
+    const {currentUser} = useSelector(state => state.user);
+    const handleSignOut = async () => {
+        try {
+            const res = await fetch(`/api/user/signout/`,{
+                method: "POST",
+            });
+            const data = await res.json();
+            if(!res.ok) {
+                console.error(data.message);
+            }else{
+                dispatch(signoutSuccess());
+            }
+        } catch (error){
+            console.error(error.message);
+        }
+    };
     return (
         <Navbar className="border-b-2">
             <Link to="/" className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
@@ -26,8 +46,10 @@ export default function Header() {
             </Button>
 
             <div className="flex items-center gap-2 md: order-2">
-                <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
-                    <FaMoon />
+                <Button className="w-12 h-10 hidden sm:inline" color="gray" pill
+                onClick={()=> dispatch(toggelTheme())}
+                >
+                    {theme === 'light' ? <FaMoon /> : <FaSun /> }
                 </Button>
                 <Link to="/sign-in" className="flex items-center text-sm sm:text-xl font-semibold dark:text-white ml-4">
                 <Button gradientDuoTone="purpleToBlue" out>
