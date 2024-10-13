@@ -54,13 +54,16 @@ return (
         to='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
         <div className="flex items-center">
-            <img src="../assets/logo.png" alt="Logo" />
+            <img src={theme === 'dark' ? "../assets/logo-dark.png" : "../assets/logo.png"}
+                alt="Logo"
+                style={{ width: '35px', height: '35px', marginRight: '5px' }}
+            />
             <span>iBlog</span>
         </div>
-        {/* <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-        i
-        </span>
-        Blog */}
+        {/* i 
+        <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+        Blog
+        </span> */}
     </Link>
     <form onSubmit={handleSubmit}>
         <TextInput
