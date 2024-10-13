@@ -1,19 +1,25 @@
 # iBlog
 
-iBlog is a full-stack web application built using the MERN stack (MongoDB, Express.js, React, and Node.js). This project aims to provide a dynamic platform for users to create, manage, and engage with blog content.
+## Overview
 
-### Key Features:
+iBlog is a full-stack web application built using the MERN stack (MongoDB, Express.js, React JS, Node.js). It provides a dynamic platform for users to create, manage, and engage with blog content, featuring user authentication, blog management, and a commenting system.
 
-* **User Authentication:** Users can register and log in using email and password or through OAuth providers like Google and Facebook, ensuring secure access to their accounts.
-* **Blog Management:** Users can create, edit, and delete their blog posts, utilizing a rich text editor for enhanced formatting options.
-* **Commenting System:** Readers can engage with blog posts by leaving comments and like other users comments.
-* **Profile Customization:** Users can update their profile information, including profile photos, to personalize their experience.
-* **Responsive Design:** The application is designed with a mobile-first approach using Tailwind CSS, ensuring a seamless experience across devices.
-* **Admin Panel:** Admins have the ability to manage users and blog posts, monitor activity, and maintain content quality through moderation tools.
+## Features
 
-### Technology Stack:
+- **User Authentication**: Register and log in using email/password or OAuth (Google, Facebook).
+- **Blog Management**: Create, edit, and delete blog posts with a rich text editor.
+- **Commenting System**: Engage with blog posts by leaving comments.
+- **Profile Customization**: Update user profile information and profile photos.
+- **Responsive Design**: Mobile-first design using Tailwind CSS for a seamless experience.
+- **Admin Panel**: Manage users and blog posts, monitor activity, and moderate content.
 
-* **MongoDB:** A NoSQL database for storing user and blog post data.
-* **Express.js:** A web application framework for Node.js, facilitating the creation of robust APIs.
-* **React:** A JavaScript library for building interactive user interfaces, enabling a smooth and responsive user experience.
-* **Node.js:** A JavaScript runtime for building scalable server-side applications.
+
+## Technology Stack
+
+- **Frontend**: React, Tailwind CSS
+
+- **Backend**: Node.js, Express.js
+
+- **Database**: MongoDB
+
+- **Authentication**: JSON Web Tokens (JWT), OAuth
