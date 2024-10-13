@@ -18,4 +18,8 @@ router.put('/editComment/:commentId', verifyToken, editComment);
 router.delete('/deleteComment/:commentId', verifyToken, deleteComment);
 router.get('/getcomments', verifyToken, getcomments);
 
+router.get('/', (req, res) => {
+    res.send('Comment routes');
+});
+
 export default router;

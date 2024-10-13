@@ -8,6 +8,8 @@ router.post('/create', verifyToken, create)
 router.get('/getposts', getposts)
 router.delete('/deletepost/:postId/:userId', verifyToken, deletepost)
 router.put('/updatepost/:postId/:userId', verifyToken, updatepost)
-
+router.get('/', (req, res) => {
+    res.send('Post routes');
+});
 
 export default router;
