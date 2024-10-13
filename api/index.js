@@ -5,9 +5,9 @@ import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
 dotenv.config();
-//const uri = 'mongodb://localhost:27017/mydatabase'; //local MongoDB
+
 //for MongoDB Atlas
-//const uri = 'mongodb+srv://abdo17nasr:pass123@cluster0.gdvku.mongodb.net/?retryWrites=true&w=majority';
+//const uri = 'mongodb+srv://abdo17nasr:pass123@cluster0.gdvku.mongodb.net/Blog?retryWrites=true&w=majority';
 const uri = process.env.MONGO;
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -21,14 +21,22 @@ app.listen(3001, () => {
     console.log('Server is running on port 3001!');
 });
 
-app.use('/api/user' , userRoutes);
-app.use('/api/auth' , authRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/post', postRoutes);
+app.use('/api/comment', commentRoutes);
 
-app.use((err,req,res,next) =>{
-    const statusCode = err.statusCode || 500 ;
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error';
     res.status(statusCode).json({
-        success : false ,
+        success: false,
         statusCode,
         message,
     });
