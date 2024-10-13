@@ -40,8 +40,7 @@ const handleUpdloadImage = async () => {
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setImageUploadProgress(progress.toFixed(0));
         },
-        // (error) => {
-        () => {
+        (error) => {
         setImageUploadError('Image upload failed');
         setImageUploadProgress(null);
         },
@@ -79,12 +78,12 @@ const handleSubmit = async (e) => {
         setPublishError(null);
         navigate(`/post/${data.slug}`);
     }
-    } /* catch (error) {
+    } catch (error) {
     setPublishError('Something went wrong');
     }
-    }  */catch {
+    /*catch {
     setPublishError('Something went wrong');
-    }
+    }*/
 };
 return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
