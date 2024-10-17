@@ -3,6 +3,7 @@ import { errorHandler } from '../utils/error.js';
 import User from '../models/user.model.js';
 
 export const test = (req, res) => {
+  //console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
   res.json({ message: 'API is working!' });
 };
 
