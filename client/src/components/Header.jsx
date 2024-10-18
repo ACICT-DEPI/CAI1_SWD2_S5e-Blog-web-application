@@ -85,14 +85,17 @@ return (
         pill
         onClick={() => dispatch(toggleTheme())}
         >
-        {theme === 'light' ? <FaSun /> : <FaMoon />}
+        {theme === 'light' ? <FaMoon /> : <FaSun />}
         </Button>
         {currentUser ? (
         <Dropdown
             arrowIcon={false}
             inline
             label={
-            <Avatar alt='user' img={currentUser.profilePicture} rounded />
+            <div className="relative w-full h-full rounded-full p-[3px] bg-gradient-to-r from-purple-500 to-pink-500">
+            <Avatar alt='user' img={currentUser.profilePicture}
+            rounded />
+            </div>
             }
         >
             <Dropdown.Header>

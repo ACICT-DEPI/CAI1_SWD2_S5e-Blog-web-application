@@ -203,7 +203,7 @@ export default function DashProfile() {
           <img
             src={imageFileUrl || currentUser.profilePicture}
             alt='user'
-            className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${
+            className={`rounded-full w-full h-full object-cover p-1 bg-gradient-to-r from-purple-500 to-pink-500 ${
               imageFileUploadProgress &&
               imageFileUploadProgress < 100 &&
               'opacity-60'

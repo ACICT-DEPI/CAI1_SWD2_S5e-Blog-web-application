@@ -15,6 +15,27 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
     return setErrorMessage('Please fill out all fields.');
+    } 
+    if (formData.username.length < 7 || formData.username.length > 20) {
+        return setErrorMessage('Username must be between 7 and 20 characters');
+    }
+    if (formData.username.includes(' ')) {
+        return setErrorMessage('Username cannot contain spaces');
+    }
+    if (formData.username !== formData.username.toLowerCase()) {
+        return setErrorMessage('Username must be lowercase');
+    }
+    if (!formData.username.match(/^[a-zA-Z0-9]+$/)) {
+        return setErrorMessage('Username can only contain letters and numbers');
+    }
+    // Password validation
+    if (formData.password.length < 8) {
+        return setErrorMessage('Password must be at least 8 characters');
+    }if (!/[A-Z]/.test(formData.password)) {
+        return setErrorMessage('Password must contain at least one uppercase letter');
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
+        return setErrorMessage('Password must contain at least one special character');
     }
     try {
     setLoading(true);

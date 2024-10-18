@@ -15,7 +15,27 @@ export const signup = async (req, res, next) => {
     password === ''
     ) {
     next(errorHandler(400, 'All fields are required'));
+    } if (username.length < 7 || username.length > 20) {
+        return next(errorHandler(400, 'Username must be between 7 and 20 characters'));
     }
+    if (username.includes(' ')) {
+        return next(errorHandler(400, 'Username cannot contain spaces'));
+    }
+    if (username !== username.toLowerCase()) {
+        return next(errorHandler(400, 'Username must be lowercase'));
+    }
+    if (!username.match(/^[a-zA-Z0-9]+$/)) {
+        return next(errorHandler(400, 'Username can only contain letters and numbers'));
+    }
+    // Password validation
+    if (password.length < 8) {
+        return next(errorHandler(400, 'Password must be at least 8 characters'));
+    } if (!/[A-Z]/.test(password)) {
+        return next(errorHandler(400, 'Password must contain at least one uppercase letter'));
+    } if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        return next(errorHandler(400, 'Password must contain at least one special character'));
+    }
+
 
     const hashedPassword = bcryptjs.hashSync(password, 10);
 
